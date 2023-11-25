@@ -7,10 +7,9 @@ export class LegacyService {
   private nestJsRouteRegexes: RegExp[];
 
   public registerNestJsRoutes(router: Router): void {
-    const routeRegexes: RegExp[] = router.stack
+    this.nestJsRouteRegexes = router.stack
       .filter((r) => r.route)
       .map((r) => r.regexp);
-    this.nestJsRouteRegexes = routeRegexes;
   }
 
   public isNestJsRoute(url: string): boolean {
