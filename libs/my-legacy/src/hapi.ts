@@ -1,4 +1,4 @@
-const Hapi = require('@hapi/hapi');
+import * as Hapi from '@hapi/hapi';
 
 export const hapiServer = Hapi.server();
 

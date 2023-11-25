@@ -1,7 +1,7 @@
 import { MiddlewareConsumer, Module } from '@nestjs/common';
-import { MainController } from './main.controller';
 import { LegacyMiddleware } from './legacy/legacy.middleware';
 import { LegacyService } from './legacy/legacy.service';
+import { MainController } from './main.controller';
 
 @Module({
   imports: [],
@@ -9,7 +9,7 @@ import { LegacyService } from './legacy/legacy.service';
   providers: [LegacyService],
 })
 export class MainModule {
-  configure(consumer: MiddlewareConsumer) {
+  public configure(consumer: MiddlewareConsumer): void {
     consumer.apply(LegacyMiddleware).forRoutes('*');
   }
 }
